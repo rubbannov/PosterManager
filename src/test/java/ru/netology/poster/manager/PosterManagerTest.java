@@ -81,4 +81,54 @@ public class PosterManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+    @Test
+    public void testFindLastUnderLimit() {
+        manage.save(item1);
+        manage.save(item2);
+        manage.save(item3);
+        manage.save(item4);
+        manage.save(item5);
+        manage.save(item6);
+
+        PosterItem[] expected = {item6,item5, item4, item3, item2, item1};
+        PosterItem[] actual = manage.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void testFindLastOverLimit() {
+        PosterManager manage = new PosterManager(6);
+        manage.save(item1);
+        manage.save(item2);
+        manage.save(item3);
+        manage.save(item4);
+        manage.save(item5);
+        manage.save(item6);
+        manage.save(item7);
+        manage.save(item8);
+        manage.save(item9);
+        manage.save(item10);
+        manage.save(item11);
+        manage.save(item12);
+
+        PosterItem[] expected = {item12,item11, item10, item9, item8, item7};
+        PosterItem[] actual = manage.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void testFindLastEqualLimit() {
+        PosterManager manage = new PosterManager(6);
+        manage.save(item1);
+        manage.save(item2);
+        manage.save(item3);
+        manage.save(item4);
+        manage.save(item5);
+        manage.save(item6);
+
+        PosterItem[] expected = {item6,item5, item4, item3, item2, item1};
+        PosterItem[] actual = manage.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
