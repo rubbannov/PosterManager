@@ -82,7 +82,7 @@ public class PosterManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
-    public void testFindLastUnderLimit() {
+    public void testFindLastUnderLimit() { //Фильмов меньше чем лимит
         manage.save(item1);
         manage.save(item2);
         manage.save(item3);
@@ -96,7 +96,7 @@ public class PosterManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
-    public void testFindLastOverLimit() {
+    public void testFindLastOverLimit() { //Фильмов больше чем лимит
         PosterManager manage = new PosterManager(6);
         manage.save(item1);
         manage.save(item2);
@@ -117,7 +117,7 @@ public class PosterManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
-    public void testFindLastEqualLimit() {
+    public void testFindLastEqualLimit() { //Фильмов столько же сколько лимит
         PosterManager manage = new PosterManager(6);
         manage.save(item1);
         manage.save(item2);

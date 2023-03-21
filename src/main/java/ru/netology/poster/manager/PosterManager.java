@@ -1,7 +1,7 @@
 package ru.netology.poster.manager;
 
-public class PosterManager {
-
+public class PosterManager { //Я УЖЕ НЕ ЗНАЮ ЧТО ТУТ ЕЩЕ ИСПРАВЛЯТЬ
+    private PosterItem[] posters = new PosterItem[0];
     private int limit;
 
     public PosterManager() {
@@ -10,7 +10,7 @@ public class PosterManager {
     public PosterManager(int amountItems) {
         this.limit = amountItems;
     }
-    private PosterItem[] posters = new PosterItem[0];
+
 
     public void save(PosterItem item) {
         PosterItem[] tmp = new PosterItem[posters.length + 1];
@@ -19,6 +19,14 @@ public class PosterManager {
         }
         tmp[tmp.length - 1] = item;
         posters = tmp;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 
     public PosterItem[] findAll() {
